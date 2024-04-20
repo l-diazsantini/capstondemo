@@ -326,19 +326,19 @@ class _DemoPageWidgetState extends State<DemoPageWidget> {
                       'MainMenu',
                       queryParameters: {
                         'deviceName': serializeParam(
-                          '',
+                          widget.deviceName,
                           ParamType.String,
                         ),
                         'deviceID': serializeParam(
-                          '',
+                          widget.deviceId,
                           ParamType.String,
                         ),
                         'deviceRssi': serializeParam(
-                          0,
+                          widget.deviceRssi,
                           ParamType.int,
                         ),
                         'hasWriteCharacteristic': serializeParam(
-                          false,
+                          true,
                           ParamType.bool,
                         ),
                       }.withoutNulls,
