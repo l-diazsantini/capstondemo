@@ -3,6 +3,10 @@ import 'wave_gen_selection_widget.dart' show WaveGenSelectionWidget;
 import 'package:flutter/material.dart';
 
 class WaveGenSelectionModel extends FlutterFlowModel<WaveGenSelectionWidget> {
+  ///  Local state fields for this page.
+
+  int? currentRssi;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

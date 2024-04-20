@@ -203,6 +203,15 @@ class _MultimeterWidgetState extends State<MultimeterWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
+                      await actions.sendData(
+                        BTDeviceStruct(
+                          name: widget.deviceName,
+                          id: widget.deviceID,
+                          rssi: _model.currentRssi,
+                        ),
+                        'Ammeter',
+                      );
+
                       context.pushNamed('multimeterMeasurement');
                     },
                     child: Material(
@@ -252,7 +261,7 @@ class _MultimeterWidgetState extends State<MultimeterWidget> {
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
-                                          'Measure the value of current flowing through the system.',
+                                          'Measure the value of current.',
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
                                               .override(
@@ -291,6 +300,15 @@ class _MultimeterWidgetState extends State<MultimeterWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
+                      await actions.sendData(
+                        BTDeviceStruct(
+                          name: widget.deviceName,
+                          id: widget.deviceID,
+                          rssi: _model.currentRssi,
+                        ),
+                        'Ohmmeter',
+                      );
+
                       context.pushNamed('multimeterMeasurement');
                     },
                     child: Material(

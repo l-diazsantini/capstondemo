@@ -224,7 +224,27 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                       'Oscilloscope',
                     );
 
-                    context.pushNamed('Oscilloscope');
+                    context.pushNamed(
+                      'Oscilloscope',
+                      queryParameters: {
+                        'deviceName': serializeParam(
+                          widget.deviceName,
+                          ParamType.String,
+                        ),
+                        'deviceID': serializeParam(
+                          widget.deviceID,
+                          ParamType.String,
+                        ),
+                        'deviceRssi': serializeParam(
+                          widget.deviceRssi,
+                          ParamType.int,
+                        ),
+                        'hasWriteChracteristic': serializeParam(
+                          true,
+                          ParamType.bool,
+                        ),
+                      }.withoutNulls,
+                    );
                   },
                   child: Container(
                     width: double.infinity,
@@ -288,7 +308,27 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                       'Waveform Generator',
                     );
 
-                    context.pushNamed('WaveGenSelection');
+                    context.pushNamed(
+                      'WaveGenSelection',
+                      queryParameters: {
+                        'deviceName': serializeParam(
+                          widget.deviceName,
+                          ParamType.String,
+                        ),
+                        'deviceID': serializeParam(
+                          widget.deviceID,
+                          ParamType.String,
+                        ),
+                        'deviceRssi': serializeParam(
+                          widget.deviceRssi,
+                          ParamType.int,
+                        ),
+                        'hasWriteCharacteristic': serializeParam(
+                          true,
+                          ParamType.bool,
+                        ),
+                      }.withoutNulls,
+                    );
                   },
                   child: Container(
                     width: double.infinity,

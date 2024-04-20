@@ -1,9 +1,13 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +15,18 @@ import 'oscilloscope_model.dart';
 export 'oscilloscope_model.dart';
 
 class OscilloscopeWidget extends StatefulWidget {
-  const OscilloscopeWidget({super.key});
+  const OscilloscopeWidget({
+    super.key,
+    required this.deviceName,
+    required this.deviceID,
+    required this.deviceRssi,
+    required this.hasWriteChracteristic,
+  });
+
+  final String? deviceName;
+  final String? deviceID;
+  final int? deviceRssi;
+  final bool? hasWriteChracteristic;
 
   @override
   State<OscilloscopeWidget> createState() => _OscilloscopeWidgetState();
@@ -162,33 +177,55 @@ class _OscilloscopeWidgetState extends State<OscilloscopeWidget>
                                             ),
                                       ),
                                     ),
-                                    Text(
-                                      'Use the plus to add measurements.',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodySmall
+                                    FlutterFlowDropDown<String>(
+                                      controller:
+                                          _model.dropDownValueController ??=
+                                              FormFieldController<String>(null),
+                                      options: const ['Amplitude', 'Frequency'],
+                                      onChanged: (val) async {
+                                        setState(
+                                            () => _model.dropDownValue = val);
+                                        await actions.sendData(
+                                          BTDeviceStruct(
+                                            name: widget.deviceName,
+                                            id: widget.deviceID,
+                                            rssi: _model.currentRssi,
+                                          ),
+                                          'Measurements',
+                                        );
+                                      },
+                                      width: 300.0,
+                                      height: 56.0,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
                                             letterSpacing: 0.0,
                                           ),
+                                      hintText: 'Add Measurement',
+                                      icon: Icon(
+                                        Icons.keyboard_arrow_down_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 24.0,
+                                      ),
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      elevation: 2.0,
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      borderWidth: 2.0,
+                                      borderRadius: 8.0,
+                                      margin: const EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 4.0, 16.0, 4.0),
+                                      hidesUnderline: true,
+                                      isOverButton: true,
+                                      isSearchable: false,
+                                      isMultiSelect: false,
                                     ),
                                   ],
                                 ),
                               ),
-                            ),
-                            FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30.0,
-                              borderWidth: 1.0,
-                              buttonSize: 60.0,
-                              icon: Icon(
-                                Icons.add_circle_outline_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 30.0,
-                              ),
-                              onPressed: () {
-                                print('IconButton pressed ...');
-                              },
                             ),
                           ],
                         ),
@@ -293,6 +330,18 @@ class _OscilloscopeWidgetState extends State<OscilloscopeWidget>
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
+                                  ),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      _model.dropDownValue,
+                                      'Measurements',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ],

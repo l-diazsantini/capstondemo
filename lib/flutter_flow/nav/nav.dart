@@ -100,7 +100,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Oscilloscope',
           path: '/oscilloscope',
-          builder: (context, params) => const OscilloscopeWidget(),
+          builder: (context, params) => OscilloscopeWidget(
+            deviceName: params.getParam(
+              'deviceName',
+              ParamType.String,
+            ),
+            deviceID: params.getParam(
+              'deviceID',
+              ParamType.String,
+            ),
+            deviceRssi: params.getParam(
+              'deviceRssi',
+              ParamType.int,
+            ),
+            hasWriteChracteristic: params.getParam(
+              'hasWriteChracteristic',
+              ParamType.bool,
+            ),
+          ),
         ),
         FFRoute(
           name: 'Multimeter',
@@ -132,7 +149,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'WaveGenSelection',
           path: '/waveGenSelection',
-          builder: (context, params) => const WaveGenSelectionWidget(),
+          builder: (context, params) => WaveGenSelectionWidget(
+            deviceName: params.getParam(
+              'deviceName',
+              ParamType.String,
+            ),
+            deviceID: params.getParam(
+              'deviceID',
+              ParamType.String,
+            ),
+            deviceRssi: params.getParam(
+              'deviceRssi',
+              ParamType.int,
+            ),
+            hasWriteCharacteristic: params.getParam(
+              'hasWriteCharacteristic',
+              ParamType.bool,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
