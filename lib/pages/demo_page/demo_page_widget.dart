@@ -322,7 +322,27 @@ class _DemoPageWidgetState extends State<DemoPageWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('MainMenu');
+                    context.pushNamed(
+                      'MainMenu',
+                      queryParameters: {
+                        'deviceName': serializeParam(
+                          '',
+                          ParamType.String,
+                        ),
+                        'deviceID': serializeParam(
+                          '',
+                          ParamType.String,
+                        ),
+                        'deviceRssi': serializeParam(
+                          0,
+                          ParamType.int,
+                        ),
+                        'hasWriteCharacteristic': serializeParam(
+                          false,
+                          ParamType.bool,
+                        ),
+                      }.withoutNulls,
+                    );
                   },
                   text: 'Pages',
                   options: FFButtonOptions(
