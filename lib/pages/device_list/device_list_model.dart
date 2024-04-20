@@ -41,8 +41,6 @@ class DeviceListModel extends FlutterFlowModel<DeviceListWidget> {
   List<BTDeviceStruct>? fetchedConnectedDevices;
   // Stores action output result for [Custom Action - findDevices] action in DeviceList widget.
   List<BTDeviceStruct>? fetchedDevices;
-  // State field(s) for Switch widget.
-  bool? switchValue;
   // Stores action output result for [Custom Action - getConnectedDevices] action in Icon widget.
   List<BTDeviceStruct>? fetchedConnectedDevicesCopy;
   // Stores action output result for [Custom Action - findDevices] action in Icon widget.

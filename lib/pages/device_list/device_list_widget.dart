@@ -128,30 +128,6 @@ class _DeviceListWidgetState extends State<DeviceListWidget>
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Enable Bluetooth',
-                    style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Montserrat',
-                          letterSpacing: 0.0,
-                        ),
-                  ),
-                  Switch.adaptive(
-                    value: _model.switchValue ??= widget.isBTEnabled,
-                    onChanged: (newValue) async {
-                      setState(() => _model.switchValue = newValue);
-                    },
-                    activeColor: FlutterFlowTheme.of(context).accent2,
-                    activeTrackColor: FlutterFlowTheme.of(context).tertiary,
-                    inactiveTrackColor:
-                        FlutterFlowTheme.of(context).primaryText,
-                    inactiveThumbColor: FlutterFlowTheme.of(context).accent2,
-                  ),
-                ],
-              ),
               Divider(
                 thickness: 0.5,
                 color: FlutterFlowTheme.of(context).secondaryText,
