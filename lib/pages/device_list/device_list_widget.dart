@@ -194,10 +194,10 @@ class _DeviceListWidgetState extends State<DeviceListWidget>
                                             0.0, 16.0, 0.0, 0.0),
                                         child: Builder(
                                           builder: (context) {
-                                            final displayConnectedDevcies =
+                                            final displayConnectedDevices =
                                                 _model.connectedDevices
                                                     .toList();
-                                            if (displayConnectedDevcies
+                                            if (displayConnectedDevices
                                                 .isEmpty) {
                                               return const Center(
                                                 child: SizedBox(
@@ -214,13 +214,13 @@ class _DeviceListWidgetState extends State<DeviceListWidget>
                                               padding: EdgeInsets.zero,
                                               shrinkWrap: true,
                                               scrollDirection: Axis.vertical,
-                                              itemCount: displayConnectedDevcies
+                                              itemCount: displayConnectedDevices
                                                   .length,
                                               itemBuilder: (context,
-                                                  displayConnectedDevciesIndex) {
-                                                final displayConnectedDevciesItem =
-                                                    displayConnectedDevcies[
-                                                        displayConnectedDevciesIndex];
+                                                  displayConnectedDevicesIndex) {
+                                                final displayConnectedDevicesItem =
+                                                    displayConnectedDevices[
+                                                        displayConnectedDevicesIndex];
                                                 return Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -240,19 +240,19 @@ class _DeviceListWidgetState extends State<DeviceListWidget>
                                                         queryParameters: {
                                                           'deviceName':
                                                               serializeParam(
-                                                            displayConnectedDevciesItem
+                                                            displayConnectedDevicesItem
                                                                 .name,
                                                             ParamType.String,
                                                           ),
                                                           'deviceId':
                                                               serializeParam(
-                                                            displayConnectedDevciesItem
+                                                            displayConnectedDevicesItem
                                                                 .id,
                                                             ParamType.String,
                                                           ),
                                                           'deviceRssi':
                                                               serializeParam(
-                                                            displayConnectedDevciesItem
+                                                            displayConnectedDevicesItem
                                                                 .rssi,
                                                             ParamType.int,
                                                           ),
@@ -320,7 +320,7 @@ class _DeviceListWidgetState extends State<DeviceListWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        displayConnectedDevciesItem
+                                                                        displayConnectedDevicesItem
                                                                             .name,
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyLarge
@@ -332,16 +332,16 @@ class _DeviceListWidgetState extends State<DeviceListWidget>
                                                                     ),
                                                                     SignalIndicatorWidget(
                                                                       key: Key(
-                                                                          'Keywn3_${displayConnectedDevciesIndex}_of_${displayConnectedDevcies.length}'),
-                                                                      rssi: displayConnectedDevciesItem
+                                                                          'Keywn3_${displayConnectedDevicesIndex}_of_${displayConnectedDevices.length}'),
+                                                                      rssi: displayConnectedDevicesItem
                                                                           .rssi,
                                                                       color: valueOrDefault<
                                                                           Color>(
                                                                         () {
-                                                                          if (displayConnectedDevciesItem.rssi >=
+                                                                          if (displayConnectedDevicesItem.rssi >=
                                                                               -67) {
                                                                             return FlutterFlowTheme.of(context).success;
-                                                                          } else if (displayConnectedDevciesItem.rssi >=
+                                                                          } else if (displayConnectedDevicesItem.rssi >=
                                                                               -90) {
                                                                             return FlutterFlowTheme.of(context).warning;
                                                                           } else {
@@ -362,7 +362,7 @@ class _DeviceListWidgetState extends State<DeviceListWidget>
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
-                                                                    displayConnectedDevciesItem
+                                                                    displayConnectedDevicesItem
                                                                         .id,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
