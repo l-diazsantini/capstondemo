@@ -68,277 +68,288 @@ class _MultimeterWidgetState extends State<MultimeterWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                child: Text(
-                  'Select Measurement Option',
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).headlineLarge.override(
-                        fontFamily: 'Montserrat',
-                        letterSpacing: 0.0,
-                      ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                  child: Text(
+                    'Select Measurement Option',
+                    textAlign: TextAlign.start,
+                    style: FlutterFlowTheme.of(context).headlineLarge.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed('multimeterMeasurement');
-                  },
-                  child: Material(
-                    color: Colors.transparent,
-                    elevation: 2.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Container(
-                      width: double.infinity,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).accent2,
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('multimeterMeasurement');
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 2.0,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 16.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Icon(
-                              Icons.bolt,
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 36.0,
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Volts',
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleLarge
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Measure the system voltage.',
+                      child: Container(
+                        width: double.infinity,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).accent2,
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 16.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.bolt,
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 36.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Volts',
                                         style: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .titleLarge
                                             .override(
                                               fontFamily: 'Montserrat',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ),
-                                  ],
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Measure the system voltage.',
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 0.0, 0.0),
-                              child: Icon(
-                                Icons.chevron_right_rounded,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 4.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.chevron_right_rounded,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 24.0,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed('multimeterMeasurement');
-                  },
-                  child: Material(
-                    color: Colors.transparent,
-                    elevation: 2.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Container(
-                      width: double.infinity,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).accent2,
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('multimeterMeasurement');
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 2.0,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 16.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Icon(
-                              FFIcons.kcurrentDcSvgrepoCom,
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 36.0,
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Amps',
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleLarge
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Measure the value of current flowing through the system.',
+                      child: Container(
+                        width: double.infinity,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).accent2,
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 16.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                FFIcons.kcurrentDcSvgrepoCom,
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 36.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Amps',
                                         style: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .titleLarge
                                             .override(
                                               fontFamily: 'Montserrat',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ),
-                                  ],
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Measure the value of current flowing through the system.',
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 0.0, 0.0),
-                              child: Icon(
-                                Icons.chevron_right_rounded,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 4.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.chevron_right_rounded,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 24.0,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed('multimeterMeasurement');
-                  },
-                  child: Material(
-                    color: Colors.transparent,
-                    elevation: 2.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Container(
-                      width: double.infinity,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).accent2,
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('multimeterMeasurement');
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 2.0,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 16.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Icon(
-                              FFIcons.kelectricalResistanceSvgrepoCom,
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 36.0,
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Resistance',
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleLarge
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Measure resistance values.',
+                      child: Container(
+                        width: double.infinity,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).accent2,
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 16.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                FFIcons.kelectricalResistanceSvgrepoCom,
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 36.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Resistance',
                                         style: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .titleLarge
                                             .override(
                                               fontFamily: 'Montserrat',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ),
-                                  ],
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Measure resistance values.',
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 0.0, 0.0),
-                              child: Icon(
-                                Icons.chevron_right_rounded,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 4.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.chevron_right_rounded,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 24.0,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
