@@ -1,12 +1,25 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'main_menu_model.dart';
 export 'main_menu_model.dart';
 
 class MainMenuWidget extends StatefulWidget {
-  const MainMenuWidget({super.key});
+  const MainMenuWidget({
+    super.key,
+    required this.deviceName,
+    required this.deviceID,
+    required this.deviceRssi,
+    required this.hasWriteCharacteristic,
+  });
+
+  final String? deviceName;
+  final String? deviceID;
+  final int? deviceRssi;
+  final bool? hasWriteCharacteristic;
 
   @override
   State<MainMenuWidget> createState() => _MainMenuWidgetState();
@@ -52,8 +65,8 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 30.0,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
+            onPressed: () async {
+              context.safePop();
             },
           ),
           actions: const [],
@@ -119,6 +132,15 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed('Multimeter');
+
+                    await actions.sendData(
+                      BTDeviceStruct(
+                        name: widget.deviceName,
+                        id: widget.deviceID,
+                        rssi: _model.currentRssi,
+                      ),
+                      'Pls work for papi',
+                    );
                   },
                   child: Container(
                     width: double.infinity,

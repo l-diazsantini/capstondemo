@@ -78,7 +78,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'MainMenu',
           path: '/mainMenu',
-          builder: (context, params) => const MainMenuWidget(),
+          builder: (context, params) => MainMenuWidget(
+            deviceName: params.getParam(
+              'deviceName',
+              ParamType.String,
+            ),
+            deviceID: params.getParam(
+              'deviceID',
+              ParamType.String,
+            ),
+            deviceRssi: params.getParam(
+              'deviceRssi',
+              ParamType.int,
+            ),
+            hasWriteCharacteristic: params.getParam(
+              'hasWriteCharacteristic',
+              ParamType.bool,
+            ),
+          ),
         ),
         FFRoute(
           name: 'Oscilloscope',

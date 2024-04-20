@@ -3,6 +3,10 @@ import 'main_menu_widget.dart' show MainMenuWidget;
 import 'package:flutter/material.dart';
 
 class MainMenuModel extends FlutterFlowModel<MainMenuWidget> {
+  ///  Local state fields for this page.
+
+  int? currentRssi;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
