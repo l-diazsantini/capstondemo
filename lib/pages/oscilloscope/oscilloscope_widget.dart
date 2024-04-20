@@ -389,8 +389,15 @@ class _OscilloscopeWidgetState extends State<OscilloscopeWidget>
                             Align(
                               alignment: const AlignmentDirectional(-0.46, 0.45),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  await actions.sendData(
+                                    BTDeviceStruct(
+                                      name: widget.deviceName,
+                                      id: widget.deviceID,
+                                      rssi: _model.currentRssi,
+                                    ),
+                                    '1',
+                                  );
                                 },
                                 text: '1',
                                 options: FFButtonOptions(
@@ -420,8 +427,15 @@ class _OscilloscopeWidgetState extends State<OscilloscopeWidget>
                             Align(
                               alignment: const AlignmentDirectional(0.6, 0.49),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  await actions.sendData(
+                                    BTDeviceStruct(
+                                      name: widget.deviceName,
+                                      id: widget.deviceID,
+                                      rssi: _model.currentRssi,
+                                    ),
+                                    '2',
+                                  );
                                 },
                                 text: '2',
                                 options: FFButtonOptions(
