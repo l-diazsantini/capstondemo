@@ -137,10 +137,30 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                         id: widget.deviceID,
                         rssi: _model.currentRssi,
                       ),
-                      'Pls work for papi',
+                      'Multimeter',
                     );
 
-                    context.pushNamed('Multimeter');
+                    context.pushNamed(
+                      'Multimeter',
+                      queryParameters: {
+                        'deviceName': serializeParam(
+                          widget.deviceName,
+                          ParamType.String,
+                        ),
+                        'deviceID': serializeParam(
+                          widget.deviceID,
+                          ParamType.String,
+                        ),
+                        'deviceRssi': serializeParam(
+                          widget.deviceRssi,
+                          ParamType.int,
+                        ),
+                        'hasWriteCharacteristic': serializeParam(
+                          true,
+                          ParamType.bool,
+                        ),
+                      }.withoutNulls,
+                    );
                   },
                   child: Container(
                     width: double.infinity,
@@ -195,6 +215,15 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
+                    await actions.sendData(
+                      BTDeviceStruct(
+                        name: widget.deviceName,
+                        id: widget.deviceID,
+                        rssi: _model.currentRssi,
+                      ),
+                      'Oscilloscope',
+                    );
+
                     context.pushNamed('Oscilloscope');
                   },
                   child: Container(
@@ -250,6 +279,15 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
+                    await actions.sendData(
+                      BTDeviceStruct(
+                        name: widget.deviceName,
+                        id: widget.deviceID,
+                        rssi: _model.currentRssi,
+                      ),
+                      'Waveform Generator',
+                    );
+
                     context.pushNamed('WaveGenSelection');
                   },
                   child: Container(

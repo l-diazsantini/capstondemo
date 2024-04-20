@@ -248,11 +248,13 @@ class _DemoPageWidgetState extends State<DemoPageWidget> {
                               filled: true,
                               fillColor: FlutterFlowTheme.of(context).tertiary,
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyLarge.override(
-                                      fontFamily: 'Montserrat',
-                                      letterSpacing: 0.0,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  letterSpacing: 0.0,
+                                ),
                             validator: _model.textControllerValidator
                                 .asValidator(context),
                           ),
