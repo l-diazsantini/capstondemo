@@ -20,10 +20,6 @@ class FFAppState extends ChangeNotifier {
       _xAxis =
           prefs.getStringList('ff_xAxis')?.map(double.parse).toList() ?? _xAxis;
     });
-    _safeInit(() {
-      _yAxis =
-          prefs.getStringList('ff_yAxis')?.map(double.parse).toList() ?? _yAxis;
-    });
   }
 
   void update(VoidCallback callback) {
@@ -83,22 +79,18 @@ class FFAppState extends ChangeNotifier {
   List<double> get yAxis => _yAxis;
   set yAxis(List<double> value) {
     _yAxis = value;
-    prefs.setStringList('ff_yAxis', value.map((x) => x.toString()).toList());
   }
 
   void addToYAxis(double value) {
     _yAxis.add(value);
-    prefs.setStringList('ff_yAxis', _yAxis.map((x) => x.toString()).toList());
   }
 
   void removeFromYAxis(double value) {
     _yAxis.remove(value);
-    prefs.setStringList('ff_yAxis', _yAxis.map((x) => x.toString()).toList());
   }
 
   void removeAtIndexFromYAxis(int index) {
     _yAxis.removeAt(index);
-    prefs.setStringList('ff_yAxis', _yAxis.map((x) => x.toString()).toList());
   }
 
   void updateYAxisAtIndex(
@@ -106,12 +98,10 @@ class FFAppState extends ChangeNotifier {
     double Function(double) updateFn,
   ) {
     _yAxis[index] = updateFn(_yAxis[index]);
-    prefs.setStringList('ff_yAxis', _yAxis.map((x) => x.toString()).toList());
   }
 
   void insertAtIndexInYAxis(int index, double value) {
     _yAxis.insert(index, value);
-    prefs.setStringList('ff_yAxis', _yAxis.map((x) => x.toString()).toList());
   }
 }
 
